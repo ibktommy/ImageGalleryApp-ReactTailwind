@@ -26,13 +26,16 @@ function App() {
 
 	return (
 		<div className="container mx-auto">
-			<div className="grid grid-cols-3 gap-4">
-				{/* Display ImageCard Component as we map through images-state array */}
-
-				{images.map((image) => (
-					<ImagesCard key={image.id} image={image} />
-				))}
-			</div>
+			{isLoading ? (
+				<h1 className="text-6xl text-center mx-auto mt-32">Images Are Loading!</h1>
+			) : (
+				<div className="grid grid-cols-3 gap-4">
+					{/* Display ImageCard Component as we map through images-state array */}
+					{images.map((image) => (
+						<ImagesCard key={image.id} image={image} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
