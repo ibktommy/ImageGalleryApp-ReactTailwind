@@ -7,7 +7,7 @@ function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [term, setTerm] = useState("");
 
-	// The API key
+	// The URL API key
 	const apiKey = "27572687-09e79ca90aa7188dc30f8c0dd";
 
 	// Adding UseEffect Hook For API call when our component did mount
@@ -16,7 +16,10 @@ function App() {
 	useEffect(() => {
 		fetch(`https://pixabay.com/api/?key=${apiKey}&q=${term}&image_type=photo&pretty=true`)
 			.then((res) => res.json())
-			.then((data) => console.log(data))
+			.then((data) => {
+				setImages(data.hits);
+				setIsLoading(false);
+			})
 			.catch((err) => console.log(err.message));
 	});
 
