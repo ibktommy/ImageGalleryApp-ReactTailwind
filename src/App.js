@@ -27,7 +27,11 @@ function App() {
 
 	return (
 		<div className="container mx-auto">
-			<SearchButton />
+			<SearchButton
+				searchTerm={(term) => {
+					setTerm(term);
+				}}
+			/>
 			{isLoading ? (
 				<h1 className="text-6xl text-center mx-auto mt-32">Images Are Loading!</h1>
 			) : (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchButton = () => {
+const SearchButton = ({ searchTerm }) => {
 	// Defining Seach Button Component State
 	const [input, setInput] = useState("");
 
