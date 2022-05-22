@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from "react";
 
 function App() {
+	// Defining App Level State
+
 	const [images, setImages] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [term, setTerm] = useState("");
+
+	// The API key
+	const apiKey = "27572687-09e79ca90aa7188dc30f8c0dd";
+
+	// Adding UseEffect Hook For API call when our component did mount
+	// UseEffect runs after evrery render of our component
+
+	useEffect(() => {
+		fetch(`https://pixabay.com/api/?key=${apiKey}&q=${term}&image_type=photo&pretty=true`)
+			.then((res) => res.json())
+			.then((data) => console.log(data))
+			.catch((err) => console.log(err.message));
+	});
 
 	return (
 		<div className="max-w-sm rounded overflow-hidden shadow-lg">
