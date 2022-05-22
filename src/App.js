@@ -23,13 +23,13 @@ function App() {
 				setIsLoading(false);
 			})
 			.catch((err) => console.log(err.message));
-	});
+	}, [term]);
 
 	return (
 		<div className="container mx-auto">
 			<SearchButton
-				searchTerm={(term) => {
-					setTerm(term);
+				searchTerm={(inputText) => {
+					setTerm(inputText);
 				}}
 			/>
 			{isLoading ? (

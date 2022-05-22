@@ -4,9 +4,15 @@ const SearchButton = ({ searchTerm }) => {
 	// Defining Seach Button Component State
 	const [input, setInput] = useState("");
 
+	// Submit Function to set the searchButton input-state as a Prop
+	function submit(e) {
+		e.preventDefault();
+		searchTerm(input);
+	}
+
 	return (
 		<div className="max-w-sm rounded overflow-hidden my-10 mx-auto">
-			<form className="w-full max-w-sm">
+			<form onSubmit={submit} className="w-full max-w-sm">
 				<div className="flex items-center border-b-2 border-teal-500 py-2">
 					<input
 						onChange={(e) => {
