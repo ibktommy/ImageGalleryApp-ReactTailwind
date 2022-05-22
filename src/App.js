@@ -32,6 +32,11 @@ function App() {
 					setTerm(inputText);
 				}}
 			/>
+
+			{!isLoading && images.length === 0 && (
+				<h1 className="text-6xl text-center mx-auto mt-32">No Images Found!</h1>
+			)}
+
 			{isLoading ? (
 				<h1 className="text-6xl text-center mx-auto mt-32">Images Are Loading!</h1>
 			) : (
