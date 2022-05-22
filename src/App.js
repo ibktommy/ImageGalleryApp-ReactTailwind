@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImagesCard from "./components/ImagesCard";
+import SearchButton from "./components/SearchButton";
 
 function App() {
 	// Defining App Level State
@@ -26,6 +27,7 @@ function App() {
 
 	return (
 		<div className="container mx-auto">
+			<SearchButton />
 			{isLoading ? (
 				<h1 className="text-6xl text-center mx-auto mt-32">Images Are Loading!</h1>
 			) : (
